@@ -15,19 +15,7 @@ function VeiculosC () {
     
             </div>
     
-            <div class="conten-2">
-              <div className="button-div">
-                <Button
-                  text="VOLTAR"
-                  onClick={() => alert("Botão clicado!")} // Função de clique
-                />
-              
-              <Button
-                  text="CADASTRAR"
-                  onClick={() => alert("Botão clicado!")} // Função de clique
-                />
-              </div>
-            </div>
+           
           </div>
     
           <div className="direit-side">
@@ -67,7 +55,21 @@ function VeiculosC () {
                   placeholder="Digite o tipo"
                 />
               </div>
-             
+              <div className="contente-3"></div>
+
+              <div class="contente-2">
+              <div className="button-div">
+                <Button
+                  text="VOLTAR"
+                  onClick={() => alert("Botão clicado!")} // Função de clique
+                />
+              
+              <Button
+                  text="CADASTRAR"
+                  onClick={() => alert("Botão clicado!")} // Função de clique
+                />
+              </div>
+            </div>
               <div>
         
         </div>

@@ -43,7 +43,7 @@
     justify-content: center; /* Centraliza verticalmente */
     align-items: center; /* Centraliza horizontalmente */
     padding: 20px;
-  padding-bottom: 120px;
+  padding-bottom: 50px;
   }
   
   .input-container {
@@ -80,8 +80,8 @@
   }
   
   .phot-circle {
-    width: 12em; 
-    height: 12em; 
+    width: 14em; 
+    height: 14em; 
     background-color: #d3d3d3; 
     border-radius: 50%; 
     display: flex; 
