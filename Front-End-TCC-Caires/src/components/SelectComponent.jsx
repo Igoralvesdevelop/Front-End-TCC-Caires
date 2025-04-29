@@ -27,14 +27,14 @@ const SelectComponent = () => {
       {selectedOption === 'síndico' && (
         <div className="input-container">
           <div className="inpute-container">
-            <Title>CNPJ do Síndico:</Title>
+          <Title>CNPJ do Condomínio:</Title>
             <input
               type="text"
-              id="cpf-sindico"
-              className="inpute-fields"
-              placeholder="Digite o CNPJ do síndico"
+              className="input-fields"
+              placeholder="Digite o CNPJ"
             />
           </div>
+         
 
          
         </div>

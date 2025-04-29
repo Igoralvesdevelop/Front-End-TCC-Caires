@@ -72,14 +72,7 @@ function Cadanario() {
               placeholder="Digite sua senha"
             />
           </div>
-          <div className="input-container">
-            <Title>CNPJ do Condomínio:</Title>
-            <input
-              type="text"
-              className="input-fields"
-              placeholder="Digite o CNPJ"
-            />
-          </div>
+          
           <div>
     
       <SelectComponent />
