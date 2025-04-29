@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import './SelectComponent.css'
+import React from "react";
+import { useFormContext } from "react-hook-form";
+import "./SelectComponent.css";
 
 const SelectComponent = () => {
-  const [selectedOption, setSelectedOption] = useState('');
-
-  const handleChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
+  const { register } = useFormContext();
 
   return (
     <div className="select-container">
-      <label htmlFor="select" className="label-select">Nível de acesso:</label>
-      <select id="select" value={selectedOption} onChange={handleChange} className="select-field">
+      <label htmlFor="nivel_acesso" className="label-select">Nível de acesso:</label>
+      <select
+        id="nivel_acesso"
+        className="select-field"
+        {...register("nivel_acesso", { required: true })}
+      >
         <option value="" disabled>Selecione</option>
-        <option value="funcionário">Funcionário</option>
-        <option value="síndico">Síndico</option>
+        <option value="Funcionario">Funcionário</option>
+        <option value="Sindico">Síndico</option>
 
       </select>
-      <p>Você selecionou: {selectedOption}</p>
     </div>
   );
 };

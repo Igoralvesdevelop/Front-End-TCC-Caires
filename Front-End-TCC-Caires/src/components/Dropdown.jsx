@@ -1,59 +1,55 @@
 import React, { useState } from "react";
+import { useFormContext } from "react-hook-form";
 import "./Dropdown.css";
 
 const DropdownWithRadios = () => {
+  const { register } = useFormContext();
   const [selectedOption, setSelectedOption] = useState("");
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
     <div className="dropdown">
-
-  
-        <ul className="dropdown-options">
-          <li>
-            <label>
-              <input
-                type="radio"
-                name="dropdown"
-                value="Opção 1"
-                onChange={handleOptionChange}
-              />
-             Feminino
-            </label>
-          </li>
-          <li>
-            <label>
-              <input
-                type="radio"
-                name="dropdown"
-                value="Opção 2"
-                onChange={handleOptionChange}
-              />
-           Masculino
-            </label>
-          </li>
-          <li>
-            <label>
-              <input
-                type="radio"
-                name="dropdown"
-                value="Opção 3"
-                onChange={handleOptionChange}
-              />
-              Outro
-            </label>
-          </li>
-        </ul>
-
+      <ul className="dropdown-options">
+        <li>
+          <label>
+            <input
+              type="radio"
+              name="genero"
+              value="Feminino"
+              onChange={handleOptionChange}
+              {...register("genero", { required: true })}
+            />
+            Feminino
+          </label>
+        </li>
+        <li>
+          <label>
+            <input
+              type="radio"
+              name="genero"
+              value="Masculino"
+              onChange={handleOptionChange}
+              {...register("genero", { required: true })}
+            />
+            Masculino
+          </label>
+        </li>
+        <li>
+          <label>
+            <input
+              type="radio"
+              name="genero"
+              value="Outro"
+              onChange={handleOptionChange}
+              {...register("genero", { required: true })}
+            />
+            Outro
+          </label>
+        </li>
+      </ul>
     </div>
   );
 };
