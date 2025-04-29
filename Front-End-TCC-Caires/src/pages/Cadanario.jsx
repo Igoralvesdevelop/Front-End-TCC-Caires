@@ -3,6 +3,7 @@ import Title from "../components/Title";
 import SelectComponent from '../components/SelectComponent'; 
 import Button from '../components/Button'
 import DropdownWithRadios from "../components/Dropdown";
+import PickDate from "../components/PickDate";
 import { useNavigate } from "react-router-dom";
 
 function Cadanario() {
@@ -47,11 +48,7 @@ function Cadanario() {
           </div>
           <div className="input-container">
             <Title>Data de Nascimento:</Title>
-            <input
-              type="text"
-              className="input-fields"
-              placeholder="Digite sua data de nascimento"
-            />
+            <PickDate />
           </div>
 
           <div className="input-container">
@@ -66,14 +63,7 @@ function Cadanario() {
               placeholder="Digite seu telefone"
             />
           </div>
-          <div className="input-container">
-            <Title>Email:</Title>
-            <input
-              type="text"
-              className="input-fields"
-              placeholder="Digite seu email"
-            />
-          </div>
+
           <div className="input-container">
             <Title>Senha:</Title>
             <input

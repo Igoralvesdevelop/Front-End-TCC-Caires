@@ -1,6 +1,6 @@
 import Title from "../components/Title";
 import Button from '../components/Button'
-
+import PickDate from "../components/PickDate";
 
 function PedidosC () {
 
@@ -41,13 +41,8 @@ function PedidosC () {
               </div>
               <div className="input-container">
                 <Title>Data da Entrega:</Title>
-                <input
-                  type="text"
-                  className="input-fields"
-                  placeholder="Digite a data de entrega"
-                />
-              </div>
-    
+                <PickDate />
+</div>
               <div className="input-container">
                 <Title>Status da Entrega:</Title>
                 <input

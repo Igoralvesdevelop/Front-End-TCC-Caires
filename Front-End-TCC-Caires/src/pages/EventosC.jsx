@@ -1,4 +1,5 @@
 import SelectE from "../components/SelectE";
+import PickDate from "../components/PickDate";
 
 import Title from "../components/Title";
 import Button from "../components/Button";
@@ -53,19 +54,13 @@ function EventosC() {
           </div>
         <div className="input-container">
           <Title>Início do Evento:</Title>
-          <input
-            type="text"
-            className="input-fields"
-            placeholder="Digite a data do início"
-          />
+          <PickDate />
+
         </div>
         <div className="input-container">
           <Title>Fim do Evento:</Title>
-          <input
-            type="text"
-            className="input-fields"
-            placeholder="Digite a data do término"
-          />
+          <PickDate />
+
         </div>
         <div className="input-container">
           <Title>Cor:</Title>

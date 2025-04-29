@@ -1,5 +1,7 @@
 import Title from "../components/Title";
 import Button from "../components/Button";
+import DropdownWithRadios from "../components/Dropdown";
+import PickDate from "../components/PickDate";
 import { useNavigate } from "react-router-dom";
 
 function PrestadoresC() {
@@ -37,6 +39,11 @@ function PrestadoresC() {
               placeholder="Digite seu CPF"
             />
           </div>
+          
+          <div className="input-container">
+          <Title>Gênero:</Title>
+          <DropdownWithRadios></DropdownWithRadios>
+          </div>
 
           <div className="input-container">
             <Title>UF:</Title>
@@ -64,19 +71,13 @@ function PrestadoresC() {
           </div>
           <div className="input-container">
             <Title>Data de entrada:</Title>
-            <input
-              type="text"
-              className="input-fields"
-              placeholder="Digite a data de entrada"
-            />
+            <PickDate />
+
           </div>
           <div className="input-container">
             <Title>Data de saída:</Title>
-            <input
-              type="text"
-              className="input-fields"
-              placeholder="Digite a data de saída"
-            />
+            <PickDate />
+
           </div>
 
           <div className="contente-3"></div>

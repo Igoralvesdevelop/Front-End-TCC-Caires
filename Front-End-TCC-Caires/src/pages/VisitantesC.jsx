@@ -1,11 +1,13 @@
 
 import Title from "../components/Title";
 import SelectV from "../components/SelectV";
-import Button from '../components/Button'
+import Button from '../components/Button';
+import PickDate from "../components/PickDate";
+import DropdownWithRadios from "../components/Dropdown";
 
 import { useNavigate } from "react-router-dom";
 
-function VeiculosC() {
+function VisitantesC() {
 
   const navigate = useNavigate();
   
@@ -53,8 +55,18 @@ function VeiculosC() {
               placeholder="Digite seu RG"
             />
           </div>
-
-          
+          <div className="input-container">
+          <Title>Gênero:</Title>
+          <DropdownWithRadios></DropdownWithRadios>
+          </div>
+          <div className="input-container">
+            <Title>Telefone:</Title>
+            <input
+              type="text"
+              className="input-fields"
+              placeholder="Digite seu telefone"
+            />
+          </div>
           <div className="input-container">
             <Title>UF:</Title>
             <input
@@ -81,19 +93,13 @@ function VeiculosC() {
           </div>
           <div className="input-container">
             <Title>Data de entrada:</Title>
-            <input
-              type="text"
-              className="input-fields"
-              placeholder="Digite a data de entrada"
-            />
-          </div>
+            <PickDate />
+            </div>
+
           <div className="input-container">
             <Title>Data de saída:</Title>
-            <input
-              type="text"
-              className="input-fields"
-              placeholder="Digite a data de saída"
-            />
+            <PickDate />
+
           </div>
           <div>
     
@@ -122,4 +128,4 @@ function VeiculosC() {
   );
 }
 
-export default VeiculosC;
+export default VisitantesC;

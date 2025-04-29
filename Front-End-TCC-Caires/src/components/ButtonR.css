@@ -1,0 +1,57 @@
+.layoute-lateral {
+  display: flex;
+  flex-direction: row;
+}
+
+.botao-horizontal   {
+  padding: 12px 10px;
+  border-radius:12px 12px 0 0 ;
+
+  cursor: pointer;
+  height: 55px;
+  font-weight: 500;
+
+  width: 120px;
+  background-color: #00c8ff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 20px;
+  transition: transform 0.3s ease, margin 0.3s ease;
+}
+.container-horizontal {
+  display: flex;
+  flex-direction: row; /* Organiza as abas horizontalmente */
+  justify-content: center; 
+  gap: 20px; 
+  width: 100%;
+}
+-----------------------------------------------
+
+.layoute-lateral {
+  display: flex;
+  flex-direction: row;
+}
+.container-horizontal {
+  display: flex;
+  flex-direction: row; 
+  justify-content: center;
+  flex-wrap: wrap; /* Garante que os botões se ajustem em telas menores */
+  gap: 20px;
+  width: 100%;
+}
+
+.botao-horizontal {
+  flex: 1; /* Permite que os botões se expandam conforme necessário */
+  min-width: 100px; /* Define um tamanho mínimo para evitar quebra de layout */
+  padding: 12px 10px;
+  border-radius: 12px 12px 0 0;
+  cursor: pointer;
+  height: 55px;
+  font-weight: 500;
+  background-color: #00c8ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, margin 0.3s ease;
+}

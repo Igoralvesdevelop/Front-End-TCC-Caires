@@ -6,7 +6,7 @@ import caires from './assets/caires.png'
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import Login  from './pages/Login.jsx';
 import Funciocondo from './pages/Funciocondo.jsx';
-import Telainicial from './pages/TelaInicial.jsx';
+import Telainicial from './pages/Telainicial.jsx';
         /*cadastros*/
 import Cadaminion from './pages/Cadaminion.jsx';
 import Cadanario from './pages/Cadanario.jsx';
@@ -17,6 +17,8 @@ import PedidosC from './pages/PedidosC.jsx';
 import EventosC from './pages/EventosC.jsx';
 import PrestadoresC from './pages/ServadoresC.jsx';
 
+        /*Registros*/ 
+import MoradoresR from './pages/registros/MoradoresR.jsx';  
 
 
 function Rotas() {
@@ -34,6 +36,8 @@ function Rotas() {
         <Route path='/PedidosC' element={<PedidosC/>} />
         <Route path='/EventosC' element={<EventosC/>} />
         <Route path='/PrestadoresC' element={<PrestadoresC/>} />
+        <Route path='/MoradoresR' element={<MoradoresR/>} />
+
 
 
 
