@@ -64,7 +64,7 @@
     align-items: flex-start; /* Alinha os itens ao topo */
     padding: 10px;
     overflow-y: auto; /* Scroll vertical ativado */
-    max-height: 53vh; /* Define altura máxima para ativar o scroll */
+    max-height: 47vh; /* Define altura máxima para ativar o scroll */
     box-sizing: border-box; 
   }
   
@@ -84,7 +84,7 @@
   .text-container {
     display: flex; 
     flex-direction: column; 
-    align-items: flex-start; 
+    align-items: center; 
     gap: 2px; 
     width: 100%; 
   }

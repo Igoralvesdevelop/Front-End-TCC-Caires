@@ -15,7 +15,7 @@ function MoradoresR() {
         </div>
         <div className="procura-2">
           <div className="input-contain">
-          <IoIosSearch size={30} color="black" className="input-icon" />
+          {/* <IoIosSearch size={30} color="black" className="input-icon" /> */}
             <input
               type="text"
               className="input-fiels"
