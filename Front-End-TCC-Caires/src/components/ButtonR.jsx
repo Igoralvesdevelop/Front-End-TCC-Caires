@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import "./ButtonR.css";
 
 function ButtonAz() {
-  const [abaSelecionada, setAbaSelecionada] = useState(); // Inicia com "moradores" como padrão
+  const [abaSelecionada, setAbaSelecionada] = useState("moradores"); // Inicia com "moradores" como padrão
 
   const abasHorizontais = ["moradores", "servidor", "visitantes", "veículos", "eventos"];
-  
 
   return (
     <div className="layout-horizontal">

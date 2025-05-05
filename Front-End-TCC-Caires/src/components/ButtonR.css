@@ -1,61 +1,74 @@
+/* Layout geral */
 .layout-horizontal {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: column; /* Alinha as abas horizontalmente acima do conteúdo */
+  align-items: center; /* Centraliza os elementos horizontalmente */
   width: 100%;
 }
 
+/* Contêiner das abas horizontais */
 .container-horizontal {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin-bottom: 2px;
+  display: flex; /* Alinha os botões horizontalmente */
+  gap: 30px; /* Espaçamento entre as abas */
+  justify-content: center; /* Centraliza as abas horizontalmente */
+  margin-bottom: 2px; /* Espaçamento entre as abas e o conteúdo */
 }
 
+/* Estilo padrão para os botões horizontais */
 .botao-horizontal {
   background-color: #00aeea;
   color: #000;
-  padding: 12px 20px;
+  padding: 12px 20px; /* Mantém dimensões consistentes */
   border: none;
-  border-radius: 12px 12px 0 0;
+  border-radius:12px 12px 0 0 ; /* Bordas arredondadas */
   font-family: "Playfair Display";
   font-style: normal;
   font-size: 1vw;
-  font-weight: 500;
+  font-weight: 500; /* Peso da fonte */
   cursor: pointer;
-  height: 60px;
-  width: 160px;
-  text-align: center;
+  height: 60px; /* Altura fixa do botão */
+  width:160px ; /* Largura fixa do botão */
+  text-align: center; /* Centraliza o texto */
   transition: transform 0.3s ease, margin 0.3s ease;
+
 }
 
+/* Estilo da aba selecionada */
 .botao-horizontal.selecionado {
   transform: translateY(-5px);
   pointer-events: none;
   background-color: #00c8ff;
 }
 
+/* Ajustes para o conteúdo exibido */
 .conteudo {
   font-size: 18px;
-  font-family: "Playfair Display", serif;
-  font-weight: 400;
+  font-family: "Playfair Display", serif; /* Usa a mesma fonte para consistência */
+  font-weight: 400; /* Peso menor para o texto */
   color: #333;
-  text-align: center;
+  text-align: center; /* Centraliza o texto */
   margin-top: 20px;
 }
 
+/* Abas adicionais com fontes e responsividade */
+.botao-horizontal:hover {
+  background-color: #005f8a; /* Tom mais escuro ao passar o mouse */
+  transform: translateY(-5px);
+}
+
+/* Responsividade para telas menores */
 @media (max-width: 768px) {
   .botao-horizontal {
-    font-size: 14px;
-    padding: 10px 15px;
+    font-size: 14px; /* Texto menor para ajustar melhor em telas pequenas */
+    padding: 10px 15px; /* Reduz o tamanho dos botões */
   }
 
   .container-horizontal {
-    gap: 10px;
-    flex-wrap: wrap;
+    gap: 10px; /* Reduz o espaço entre abas */
+    flex-wrap: wrap; /* Permite que abas ocupem mais de uma linha */
   }
 
   .conteudo {
-    font-size: 16px;
+    font-size: 16px; /* Reduz o tamanho do texto */
   }
 }
