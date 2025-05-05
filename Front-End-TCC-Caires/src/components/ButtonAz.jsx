@@ -1,33 +1,37 @@
+
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./ButtonAz.css";
 
 function ButtonAz() {
-  const [abaSelecionada, setAbaSelecionada] = useState("início");
+  const navigate = useNavigate();
+  const [abaSelecionada, setAbaSelecionada] = useState("início"); // Estado para aba ativa
 
-  const abas = ["início", "registros", "pedidos"];
+  const abas = [
+    { nome: "início", rota: "/inicio" },
+    { nome: "registros", rota: "/registros" },
+    { nome: "pedidos", rota: "/pedidos" }
+  ];
 
   return (
-<div className="layout-lateral">
+    <div className="layout-lateral">
       <div className="container-vertical">
         {abas.map((aba) => (
           <button
-            key={aba}
-            className={`botao-vertical ${abaSelecionada === aba ? "selecionado" : ""}`}
-            onClick={() => setAbaSelecionada(aba)}
+            key={aba.nome}
+            className={`botao-vertical ${abaSelecionada === aba.nome ? "selecionado" : ""}`}
+            onClick={() => {
+              setAbaSelecionada(aba.nome);
+              navigate(aba.rota);
+            }}
           >
-
-<span className="texto-rotacionado">
-              {aba.charAt(0).toUpperCase() + aba.slice(1)}
+            <span className="texto-rotacionado">
+              {aba.nome.charAt(0).toUpperCase() + aba.nome.slice(1)}
             </span>
           </button>
         ))}
       </div>
-
-      <div className="conteudo">
-
-      </div>
     </div>
-
   );
 }
 

@@ -18,7 +18,10 @@ import EventosC from './pages/EventosC.jsx';
 import PrestadoresC from './pages/ServadoresC.jsx';
 
         /*Registros*/ 
-import MoradoresR from './pages/registros/MoradoresR.jsx';  
+import MoradoresR from './pages/registros/MoradoresR.jsx'; 
+import Inicio from "./pages/Telainicial.jsx";
+import Registros from "./pages/registros/MoradoresR.jsx";
+import Pedidos from "./pages/PedidosC.jsx"; 
 
 
 function Rotas() {
@@ -38,7 +41,9 @@ function Rotas() {
         <Route path='/PrestadoresC' element={<PrestadoresC/>} />
         <Route path='/MoradoresR' element={<MoradoresR/>} />
 
-
+        <Route path="/inicio" element={<Inicio />} />
+        <Route path="/registros" element={<Registros />} />
+        <Route path="/pedidos" element={<Pedidos />} />
 
 
 

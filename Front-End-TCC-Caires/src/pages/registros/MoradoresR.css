@@ -1,3 +1,5 @@
+
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 .continente {
@@ -14,14 +16,52 @@
     
   
   }
-  .continent-4 {
-    flex: 1; /* Permite que o contêiner ocupe mais espaço e ajuste dinamicamente */
-    display: flex;
-    flex-direction: column; /* Mantém os elementos empilhados verticalmente */
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
+.container-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  width: 65vw;
+  height: 75vh;
+  position: relative;
+}
+
+/* Ajusta os botões corretamente */
+.container-botoes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Botão acima do continente */
+.container-botoes > :first-child {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Botão ao lado do continente */
+.container-botoes > :last-child {
+  position: absolute;
+  left: -70px;
+  top: 52%;
+  transform: translateY(-50%);
+}
+
+.continent-4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Permite posicionamento correto */
+  width: 65vw;
+  height: 75vh;
+}
+
+
  
   .procura-2 {
     flex: 1;
@@ -49,8 +89,8 @@
     flex-direction: column;
     justify-content: center;
     align-items:center;
-    padding: 30px;
-    padding-bottom: 10px;
+    /* padding: 30px; */
+    padding-bottom: 60px;
     
   
   
@@ -106,22 +146,29 @@
   }
 
   .input-contain {
-    display: flex; 
-    flex-direction: column; 
-    align-items: flex-start; 
-    width: 35%; 
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .input-icon {
+    position: absolute;
+    left: 10px;
+    pointer-events: none; /* evita bloquear clique no input */
   }
   
   .input-fiels {
-    width: 91%;
-    padding: 10px; 
+    width: 100%;
+    padding: 10px 10px 10px 35px; /* padding esquerdo para o ícone */
     border-radius: 5px; 
     font-size: 16px; 
     border: 2px solid #ccc; 
     background-color: #D9D9D9; 
-    height: 2.5vh;
+    height: 5.5vh;
+    box-sizing: border-box;
   }
-
  
   p{
     font-family: 'Playfair Display';
