@@ -19,9 +19,28 @@ import PrestadoresC from './pages/ServadoresC.jsx';
 
         /*Registros*/ 
 import MoradoresR from './pages/registros/MoradoresR.jsx'; 
+import PrestadoresR from './pages/registros/ServadoresR.jsx';
+import VisitantesR from './pages/registros/VisitantesR.jsx';
+import VeiculosR from './pages/registros/VeiculosR.jsx';
+import EventosR from  './pages/registros/EventosR.jsx';
+import PedidosR from './pages/registros/PedidosR.jsx';
+
+
+         /*botoes ao lado*/
 import Inicio from "./pages/Telainicial.jsx";
 import Registros from "./pages/registros/MoradoresR.jsx";
-import Pedidos from "./pages/PedidosC.jsx"; 
+import Pedidos from "./pages/registros/PedidosR.jsx"; 
+
+
+         /*botoes de cima*/
+  
+import Moradores from "./pages/registros/MoradoresR.jsx"
+import Prestadores from "./pages/registros/ServadoresR.jsx"
+import Visitantes from './pages/registros/VisitantesR.jsx';
+import Veiculos from './pages/registros/VeiculosR.jsx';
+import Eventos from  './pages/registros/EventosR.jsx';
+
+
 
 
 function Rotas() {
@@ -40,10 +59,24 @@ function Rotas() {
         <Route path='/EventosC' element={<EventosC/>} />
         <Route path='/PrestadoresC' element={<PrestadoresC/>} />
         <Route path='/MoradoresR' element={<MoradoresR/>} />
+        <Route path='/PrestadoresR' element={<PrestadoresR/>} />
+        <Route path='/VisitantesR' element={<VisitantesR/>} />
+        <Route path='/VeiculosR' element={<VeiculosR/>} />
+        <Route path='/EventosR' element={<EventosR/>} />
+        <Route path='/PedidosR' element={<PedidosR/>} />
+
+
+
 
         <Route path="/inicio" element={<Inicio />} />
         <Route path="/registros" element={<Registros />} />
         <Route path="/pedidos" element={<Pedidos />} />
+
+        <Route path="/moradores" element={<Moradores />} />
+        <Route path="/servidor" element={<Prestadores />} />
+        <Route path="/visitantes" element={<Visitantes />} />
+        <Route path="/veiculos" element={<Veiculos />} />
+        <Route path="/eventos" element={<Eventos />} />
 
 
 

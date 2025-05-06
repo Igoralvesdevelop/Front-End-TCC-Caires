@@ -57,7 +57,7 @@
 .continente-4 {
   flex: 0.4;
   display: flex;
-  margin-left: 0em;
+  margin-left: -5em;
   justify-content: center;
   align-items: center;
 }

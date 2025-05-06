@@ -31,8 +31,13 @@ function MeuMenu() {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}>Moradores</MenuItem>
-        <MenuItem onClick={handleClose}>Servidor</MenuItem>
+        <MenuItem onClick={handleClose}>Prestadores</MenuItem>
         <MenuItem onClick={handleClose}>Visitantes</MenuItem>
+        <MenuItem onClick={handleClose}>Veículos</MenuItem>
+        <MenuItem onClick={handleClose}>Pedidos</MenuItem>
+        <MenuItem onClick={handleClose}>Eventos</MenuItem>
+
+
         <MenuItem sx={{ color: "blue", fontWeight: "bold" }}>
           Opção Personalizada
         </MenuItem>

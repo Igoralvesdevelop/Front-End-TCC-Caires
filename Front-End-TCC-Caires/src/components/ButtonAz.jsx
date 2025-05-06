@@ -1,17 +1,22 @@
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ButtonAz.css";
 
 function ButtonAz() {
   const navigate = useNavigate();
-  const [abaSelecionada, setAbaSelecionada] = useState("início"); // Estado para aba ativa
+  const [abaSelecionada, setAbaSelecionada] = useState(
+    localStorage.getItem("abaSelecionada") 
+  );
 
   const abas = [
     { nome: "início", rota: "/inicio" },
     { nome: "registros", rota: "/registros" },
     { nome: "pedidos", rota: "/pedidos" }
   ];
+
+  useEffect(() => {
+    localStorage.setItem("abaSelecionada", abaSelecionada);
+  }, [abaSelecionada]);
 
   return (
     <div className="layout-lateral">

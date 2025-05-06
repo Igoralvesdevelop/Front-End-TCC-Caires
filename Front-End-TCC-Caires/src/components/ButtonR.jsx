@@ -1,29 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./ButtonR.css";
 
-function ButtonAz() {
-  const [abaSelecionada, setAbaSelecionada] = useState("moradores"); // Inicia com "moradores" como padrão
+function ButtonR() {
+  const navigate = useNavigate();
+  const [abaSelecionada, setAbaSelecionada] = useState(
+    localStorage.getItem("abaSelecionada") 
+  );
 
-  const abasHorizontais = ["moradores", "servidor", "visitantes", "veículos", "eventos"];
+  const abasHorizontais = [
+    { nome: "moradores", rota: "/moradores" },
+    { nome: "servidor", rota: "/servidor" },
+    { nome: "visitantes", rota: "/visitantes" },
+    { nome: "veículos", rota: "/veiculos" },
+    { nome: "eventos", rota: "/eventos" }
+  ];
+
+  useEffect(() => {
+    localStorage.setItem("abaSelecionada", abaSelecionada);
+  }, [abaSelecionada]);
 
   return (
     <div className="layout-horizontal">
-      {/* Abas Horizontais */}
       <div className="container-horizontal">
         {abasHorizontais.map((aba) => (
           <button
-            key={aba}
-            className={`botao-horizontal ${abaSelecionada === aba ? "selecionado" : ""}`}
-            onClick={() => setAbaSelecionada(aba)} // Seleciona a aba ao clicar
+            key={aba.nome}
+            className={`botao-horizontal ${abaSelecionada === aba.nome ? "selecionado" : ""}`}
+            onClick={() => {
+              setAbaSelecionada(aba.nome);
+              navigate(aba.rota);
+            }}
           >
-            {aba.charAt(0).toUpperCase() + aba.slice(1)} {/* Texto em maiúscula */}
+            {aba.nome.charAt(0).toUpperCase() + aba.nome.slice(1)}
           </button>
         ))}
       </div>
-
-      
     </div>
   );
 }
 
-export default ButtonAz;
+export default ButtonR;
