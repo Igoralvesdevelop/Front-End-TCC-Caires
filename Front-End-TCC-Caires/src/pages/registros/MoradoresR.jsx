@@ -11,7 +11,6 @@ function MoradoresR() {
     <div className="container-principal">
       {/* Container dos botões - Não interfere no alinhamento */}
       <div className="container-botoes">
-        <ButtonR />
         <ButtonAz />
       </div>
 

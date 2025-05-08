@@ -3,6 +3,8 @@ import Button from "../components/Button";
 import DropdownWithRadios from "../components/Dropdown";
 import PickDate from "../components/PickDate";
 import { useNavigate } from "react-router-dom";
+import MeuMenu from "../components/MeuMenu";
+
 
 function PrestadoresC() {
   const navigate = useNavigate();
@@ -14,6 +16,9 @@ function PrestadoresC() {
     <div class="container teste">
       <div class="other-side">
         <div class="contente-1">
+          <div>
+      <MeuMenu /> 
+    </div>
         <Title>Adicionar um novo Prestador de serviço:</Title>
         <div class="photo-circle">
         </div>

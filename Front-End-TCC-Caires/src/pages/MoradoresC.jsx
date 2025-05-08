@@ -3,12 +3,17 @@ import SelectComponent from "../components/SelectComponent";
 import Button from "../components/Button";
 import DropdownWithRadios from "../components/Dropdown";
 import PickDate from "../components/PickDate";
+import MeuMenu from "../components/MeuMenu";
+
 
 function MoradoresC() {
   return (
     <div class="container teste">
       <div class="other-side">
         <div class="contente-1">
+          <div>
+      <MeuMenu /> {/* Aqui o menu aparece na tela */}
+    </div>
           <Title>Adicionar um novo Morador:</Title>
           <div class="photo-circle"></div>
         </div>
