@@ -3,7 +3,7 @@ import cairesa from "../../assets/cairesazul.png";
 import { IoIosSearch } from "react-icons/io";
 import ButtonR from "../../components/ButtonR";
 import ButtonAz from "../../components/ButtonAz";
-import MeuMenu from "../../components/MeuMenu";
+import MenuC from "../../components/MenuC";
 
 function ServadoresR() {
   return (
@@ -22,7 +22,7 @@ function ServadoresR() {
           <div className="pesquisa-side">
             <div className="continente-1">
             <div>
-      <MeuMenu /> {/* Aqui o menu aparece na tela */}
+      <MenuC /> {/* Aqui o menu aparece na tela */}
     </div>
               <img src={cairesa} alt="Logo" className="img-cadA" />
             </div>

@@ -32,13 +32,24 @@ import Registros from "./pages/registros/MoradoresR.jsx";
 import Pedidos from "./pages/registros/PedidosR.jsx"; 
 
 
-         /*botoes de cima*/
+         /*menu cadastro para registro*/
   
 import Moradores from "./pages/registros/MoradoresR.jsx"
 import Prestadores from "./pages/registros/ServadoresR.jsx"
 import Visitantes from './pages/registros/VisitantesR.jsx';
 import Veiculos from './pages/registros/VeiculosR.jsx';
 import Eventos from  './pages/registros/EventosR.jsx';
+
+
+
+        /*menu registro  para cadastro*/
+  
+import MoradoresCa from "./pages/MoradoresC.jsx"
+import PrestadoresCa from "./pages/ServadoresC.jsx"
+import VisitantesCa from './pages/VisitantesC.jsx';
+import VeiculosCa from './pages/VeiculosC.jsx';
+import EventosCa from  './pages/EventosC.jsx';
+import PedidosCa from "./pages/PedidosC.jsx"; 
 
 
 
@@ -77,6 +88,16 @@ function Rotas() {
         <Route path="/visitantes" element={<Visitantes />} />
         <Route path="/veiculos" element={<Veiculos />} />
         <Route path="/eventos" element={<Eventos />} />
+
+
+        <Route path="/pedidosc" element={<PedidosCa />} />
+        <Route path="/moradoresc" element={<MoradoresCa />} />
+        <Route path="/servidorc" element={<PrestadoresCa />} />
+        <Route path="/visitantesc" element={<VisitantesCa />} />
+        <Route path="/veiculosc" element={<VeiculosCa />} />
+        <Route path="/eventosc" element={<EventosCa />} />
+
+
 
 
 
