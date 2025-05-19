@@ -4,28 +4,25 @@ import SelectComponent from '../components/SelectComponent';
 import Button from '../components/Button'
 import DropdownWithRadios from "../components/Dropdown";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import SelectFS from "../components/SelectFS";
 function Cadanario() {
   const [funcionario, setFuncionario] = useState({});
   const [dataNascimento, setDataNascimento] = useState(""); // Estado para a data de nascimento
   const [telefone, setTelefone] = useState(""); // Estado para o telefone
   const [cpf, setCpf] = useState(""); // Estado para o CPF
-  const [nivelAcesso, setNivelAcesso] = useState(""); // Estado para o nível de acesso
+  const [nivelAcesso, setNivelAcesso] = useState([]); // <-- agora é array
   const [cnpj, setCnpj] = useState(""); // Estado para o CNPJ
   const [genero, setGenero] = useState(""); // Estado para o gênero
+
   const navigate = useNavigate();
 
   function handlerChangeFunc(event) {
     setFuncionario({ ...funcionario, [event.target.name]: event.target.value });
     console.log(funcionario);
   }
-  function handlerChangeAcesso(event) {
-    setFuncionario({...funcionario, [event.target.name]: event.target.value });
-    setNivelAcesso(event.target.value);
-  }
 
-
+ 
   function formatDate(value) {
     return value
       .replace(/\D/g, "") // Remove tudo que não for dígito
@@ -37,7 +34,7 @@ function Cadanario() {
   function handleDateChange(event) {
     const formattedDate = formatDate(event.target.value);
     setDataNascimento(formattedDate);
-    setFuncionario({ ...funcionario, data_nascimento: formattedDate });
+    setFuncionario({ ...funcionario, dt_nascimento: formattedDate }); // Corrigido aqui
   }
 
   function formatTelefone(value) {
@@ -68,12 +65,32 @@ function Cadanario() {
     setCpf(formattedCpf);
     setFuncionario({ ...funcionario, cpf: formattedCpf });
   }
-
+   function handlerChangeNivel(event) {
+        setFuncionario({ ...funcionario, nivel_acesso: event.target.value });
+    }
   function submit(event) {
     event.preventDefault();
     console.log(funcionario);
     insertFunc(funcionario);
   }
+   useEffect(() => {
+    fetch('http://localhost:3333/nivelAcesso', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': '*'
+      },
+    })
+      .then((resp) => resp.json())
+      .then((acesso) => {
+        console.log('TESTE: ' + acesso.data);
+        setNivelAcesso(acesso.data); // <-- aqui muda
+      })
+      .catch((error) => {
+        console.log('ERRO: ' + error);
+      })
+  }, []);
 
   function insertFunc(funcionario) {
     fetch("http://localhost:3333/funcionario", {
@@ -86,14 +103,21 @@ function Cadanario() {
       },
       body: JSON.stringify(funcionario),
     })
-    .then((resp) => resp.json())
-    .then((respJSON) => {
-      console.log("RESPOSTA: " + respJSON);
-      navigate("/");
-    })
-    .catch((error) => {
-      console.log("ERRO: " + error);
-    });
+      .then(async (resp) => {
+        if (!resp.ok) {
+          const errorText = await resp.text();
+          console.error("ERRO:", errorText);
+          throw new Error(errorText);
+        }
+        return resp.json();
+      })
+      .then((respJSON) => {
+        console.log("RESPOSTA:", respJSON);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log("ERRO:", error.message);
+      });
   }
 
   const handleClick = () => {
@@ -157,8 +181,8 @@ function Cadanario() {
               type="text"
               className="input-fields"
               placeholder="Digite a data de nascimento (DD/MM/AAAA)"
-              name="data_nascimento"
-              id="data_nascimento"
+              name="dt_nascimento"
+              id="dt_nascimento"
               value={dataNascimento}
               onChange={handleDateChange}
             />
@@ -211,10 +235,12 @@ function Cadanario() {
             />
           </div>
           <div>
-            <SelectComponent
+            <SelectFS
+              text="Nível de Acesso:"
+              name="Nivel_acesso"
               id="nivel_acesso"
-              name="nivel_acesso"
-              onChange={handleNivelAcessoChange} 
+              handlerChange={handlerChangeNivel}
+              options={nivelAcesso} // <-- já está correto aqui
             />
           </div>
           <div className="contente-3"></div>
