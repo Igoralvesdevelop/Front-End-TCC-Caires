@@ -87,7 +87,7 @@
     display: flex;
     border-radius: 0 0 16px 16px;
     flex-direction: column;
-    justify-content: center;
+    justify-content:flex-start;
     align-items:center;
     /* padding: 30px; */
     padding-bottom: 60px;
