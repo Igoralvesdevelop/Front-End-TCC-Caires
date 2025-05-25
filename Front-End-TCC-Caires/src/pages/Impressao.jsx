@@ -4,7 +4,6 @@ import cairesd from "../assets/cairesd.png";
 import { IoIosSearch } from "react-icons/io";
 import { MdOutlineMail } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import Button from "../components/Button";
 
 function Impressao() {
   const navigate = useNavigate();
@@ -13,13 +12,14 @@ function Impressao() {
     navigate("/Telainicial");
   };
 
+  const Cadastre = () => {
+    navigate("/Funciocondo");
+  };
+
   return (
     <div class="container">
       <div class="oeste-side">
-        <div class="content-1">
-          {" "}
-          <img src={cairesd} alt="Logo" className="cd-cad" />
-        </div>
+        <div class="content-1"></div>
         <div class="busca-2">
           <div className="div-a">
             <div className="busca-contain">
@@ -32,19 +32,24 @@ function Impressao() {
             </div>
           </div>
           <div class="div-but">
-            <button className="custom-button-cad31">ACESSAR</button>
+            <button className="custom-button-cad" onClick={Cadastre}>
+              ACESSAR
+            </button>
           </div>
         </div>
       </div>
 
       <div class="right-side">
-        {/* <div className="log-div">
-            <img src={cairesd} alt="Logo" className="cd-cad" />
-        </div> */}
+        <div className="login-div">
+          <h1 className="login-cad">
+            {" "}
+            <img src={cairesd} alt="Logo" className="img-cad" />
+          </h1>
+        </div>
 
         <div className="buput"></div>
-        <div className="div-button21">
-          <button className="custom-button-cad12" onClick={handleClick}>
+        <div className="div-button2">
+          <button className="custom-button-cad1" onClick={handleClick}>
             VOLTAR
           </button>
         </div>

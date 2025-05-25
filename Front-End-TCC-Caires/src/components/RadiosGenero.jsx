@@ -12,7 +12,7 @@ const DropdownWithRadios = ({ value, onChange }) => {
               name="dropdown"
               value="Feminino"
               checked={value === "Feminino"}
-              onChange={(e) => onChange(e.target.value)}
+              onChange={e => onChange(e.target.value)}
             />
             Feminino
           </label>
@@ -24,7 +24,7 @@ const DropdownWithRadios = ({ value, onChange }) => {
               name="dropdown"
               value="Masculino"
               checked={value === "Masculino"}
-              onChange={(e) => onChange(e.target.value)}
+              onChange={e => onChange(e.target.value)}
             />
             Masculino
           </label>
@@ -36,7 +36,7 @@ const DropdownWithRadios = ({ value, onChange }) => {
               name="dropdown"
               value="Outro"
               checked={value === "Outro"}
-              onChange={(e) => onChange(e.target.value)}
+              onChange={e => onChange(e.target.value)}
             />
             Outro
           </label>
