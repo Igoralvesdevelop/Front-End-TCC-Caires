@@ -16,7 +16,6 @@ const SelectV = () => {
         <option value="Evento">Evento</option>
         <option value="Comunicado">Comunicado</option>
       </select>
-      <p>Você selecionou: {selectedOption}</p>
     </div>
   );
 };

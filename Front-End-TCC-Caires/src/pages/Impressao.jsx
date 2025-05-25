@@ -18,8 +18,11 @@ function Impressao() {
 
   return (
     <div class="container">
-      <div class="oeste-side">
-        <div class="content-1"></div>
+      <div class="oest-side">
+        <div class="content-1">
+                      <img src={cairesd} alt="Logo" className="img-cad" />
+
+        </div>
         <div class="busca-2">
           <div className="div-a">
             <div className="busca-contain">
@@ -32,24 +35,19 @@ function Impressao() {
             </div>
           </div>
           <div class="div-but">
-            <button className="custom-button-cad" onClick={Cadastre}>
+            <button className="custom-button-cad13" onClick={Cadastre}>
               ACESSAR
             </button>
           </div>
         </div>
       </div>
 
-      <div class="right-side">
-        <div className="login-div">
-          <h1 className="login-cad">
-            {" "}
-            <img src={cairesd} alt="Logo" className="img-cad" />
-          </h1>
-        </div>
+      <div class="righ-side">
+        
 
-        <div className="buput"></div>
-        <div className="div-button2">
-          <button className="custom-button-cad1" onClick={handleClick}>
+        <div className="botao"></div>
+        <div className="div-button21">
+          <button className="custom-button-cad12" onClick={handleClick}>
             VOLTAR
           </button>
         </div>
