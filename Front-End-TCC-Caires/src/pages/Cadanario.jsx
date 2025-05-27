@@ -2,6 +2,8 @@ import "./Cadanario.css";
 import Title from "../components/Title";
 import SelectComponent from '../components/SelectComponent'; 
 import Button from '../components/Button'
+import { IoPersonCircleOutline } from "react-icons/io5";
+
 import DropdownWithRadios from "../components/Dropdown";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -144,7 +146,10 @@ function Cadanario() {
       <div className="other-side">
         <div className="contente-1">
           <Title>Adicionar um novo Funcionário:</Title>
-          <div className="photo-circle"></div>
+          <div className="photo-circle">
+          
+        <IoPersonCircleOutline size={550} color="#555" />
+        </div>
         </div>
       </div>
 

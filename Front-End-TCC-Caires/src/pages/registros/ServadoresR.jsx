@@ -56,7 +56,7 @@ function ServadoresR() {
 
           {/* Lista de Informações */}
           <div className="label-side">
-            <div className="div-label">
+            <div className="dive-label">
               <div className="div-label">
                 <p>Id:</p>
                 {[...Array(8)].map((_, index) => (

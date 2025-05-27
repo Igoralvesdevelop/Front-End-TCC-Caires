@@ -3,11 +3,13 @@ import SelectV from "../components/SelectV";
 import Button from "../components/Button";
 import PickDate from "../components/PickDate";
 import DropdownWithRadios from "../components/Dropdown";
+import { IoPersonCircleOutline } from "react-icons/io5";
+
 import MeuMenu from "../components/MeuMenu";
 
 import { useNavigate } from "react-router-dom";
 
-function VisitantesC() {
+function VisitantesC({ imageUrl }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -21,7 +23,13 @@ function VisitantesC() {
             <MeuMenu /> {/* Aqui o menu aparece na tela */}
           </div>
           <Title>Adicionar um novo Visitante:</Title>
-          <div class="photo-circle"></div>
+          <div class="photo-circle">
+            {imageUrl ? (
+              <img src={imageUrl} alt="User" />
+            ) : (
+              <IoPersonCircleOutline size={550} color="#555" />
+            )}
+          </div>
         </div>
       </div>
 

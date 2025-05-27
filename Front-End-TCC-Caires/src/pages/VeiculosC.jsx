@@ -2,6 +2,8 @@ import "./VeiculosC.css";
 import Title from "../components/Title";
 import Button from "../components/Button";
 import MeuMenu from "../components/MeuMenu";
+import { FaCar } from "react-icons/fa";
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -66,7 +68,10 @@ function VeiculosC() {
             <MeuMenu />
           </div>
           <Title>Adicionar um novo Veículo:</Title>
-          <div className="phot-circle"></div>
+          <div className="phot-circle">
+              
+                <FaCar  size={170} color="#555" />
+            </div>
         </div>
       </div>
 

@@ -2,6 +2,8 @@ import "./Cadaminion.css";
 import Title from "../components/Title";
 import SelectComponent from "../components/SelectComponent";
 import Button from "../components/Button";
+import { IoPersonCircleOutline } from "react-icons/io5";
+
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -78,123 +80,124 @@ function Cadaminion() {
 
   return (
     <form onSubmit={submit}>
-    <div className="container teste">
-      <div className="other-side">
-        <div className="contente-1">
-          <Title>Adicionar um novo Condomínio:</Title>
-          <div className="photo-circle"></div>
+      <div className="container teste">
+        <div className="other-side">
+          <div className="contente-1">
+            <Title>Adicionar um novo Condomínio:</Title>
+            <div class="photo-circle">
+              
+                <IoPersonCircleOutline size={550} color="#555" />
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div className="direita-side">
-        <div className="putbu">
-        
-          <div className="input-container">
-            <Title>Nome:</Title>
-            <input
-              type="text"
-              className="input-fields"
-              placeholder="Digite seu nome"
-              id="nome"
-              name="nome"
-              handlerChange={handlerChangeCondo}
-              onChange={handlerChangeCondo}
-            />
-          </div>
-
-          <div className="input-container">
-            <Title>Endereço:</Title>
-            <input
-              type="text"
-              className="input-fields"
-              placeholder="Digite seu endereço"
-              id="endereco"
-              name="endereco"
-              handlerChange={handlerChangeCondo}
-              onChange={handlerChangeCondo}
-            />
-          </div>
-          <div className="input-container">
-            <Title>Número de Blocos:</Title>
-            <input
-              type="number"
-              className="input-fields"
-              placeholder="Digite o número de blocos"
-              id="numero_bloco"
-              name="numero_bloco"
-              onChange={handlerChangeCondo}
-            />
-          </div>
-          <div className="input-container">
-            <Title>Números de Unidades:</Title>
-            <input
-              type="number"
-              className="input-fields"
-              placeholder="Digite o número de unidades"
-              name="numero_unidades"
-              id="numero_unidades"
-              onChange={handlerChangeCondo}
-            />
-          </div>
-          <div className="input-container">
-            <Title>CEP:</Title>
-            <input
-              type="text"
-              className="input-fields"
-              placeholder="Digite o CEP"
-              id="cep"
-              name="cep"
-              value={cep}
-              onChange={handleCepChange}
-            />
-          </div>
-
-          <div className="input-container">
-            <Title>Ramal:</Title>
-            <input
-              type="text"
-              className="input-fields"
-              placeholder="Digite o ramal"
-              id="ramal"
-              name="ramal"
-              handlerChange={handlerChangeCondo}
-              onChange={handlerChangeCondo}
-            />
-          </div>
-          <div className="input-container">
-            <Title>CNPJ:</Title>
-            <input
-              type="text"
-              className="input-fields"
-              placeholder="Digite o CNPJ"
-              value={cnpj}
-              id="cnpj"
-              name="cnpj"
-              handlerChange={handlerChangeCondo}
-              onChange={handleCnpjChange}
-            />
-          </div>
-
-          <div className="contente-3"></div>
-          <div className="contente-2">
-            <div className="button-div">
-              <Button
-                text="VOLTAR"
-                onClick={handleClicks}
-
-                // Função de clique
+        <div className="direita-side">
+          <div className="putbu">
+            <div className="input-container">
+              <Title>Nome:</Title>
+              <input
+                type="text"
+                className="input-fields"
+                placeholder="Digite seu nome"
+                id="nome"
+                name="nome"
+                handlerChange={handlerChangeCondo}
+                onChange={handlerChangeCondo}
               />
+            </div>
 
-              <Button
-                text="CADASTRAR"
-                onClick={() => alert("Botão clicado!")}
-             
+            <div className="input-container">
+              <Title>Endereço:</Title>
+              <input
+                type="text"
+                className="input-fields"
+                placeholder="Digite seu endereço"
+                id="endereco"
+                name="endereco"
+                handlerChange={handlerChangeCondo}
+                onChange={handlerChangeCondo}
               />
+            </div>
+            <div className="input-container">
+              <Title>Número de Blocos:</Title>
+              <input
+                type="number"
+                className="input-fields"
+                placeholder="Digite o número de blocos"
+                id="numero_bloco"
+                name="numero_bloco"
+                onChange={handlerChangeCondo}
+              />
+            </div>
+            <div className="input-container">
+              <Title>Números de Unidades:</Title>
+              <input
+                type="number"
+                className="input-fields"
+                placeholder="Digite o número de unidades"
+                name="numero_unidades"
+                id="numero_unidades"
+                onChange={handlerChangeCondo}
+              />
+            </div>
+            <div className="input-container">
+              <Title>CEP:</Title>
+              <input
+                type="text"
+                className="input-fields"
+                placeholder="Digite o CEP"
+                id="cep"
+                name="cep"
+                value={cep}
+                onChange={handleCepChange}
+              />
+            </div>
+
+            <div className="input-container">
+              <Title>Ramal:</Title>
+              <input
+                type="text"
+                className="input-fields"
+                placeholder="Digite o ramal"
+                id="ramal"
+                name="ramal"
+                handlerChange={handlerChangeCondo}
+                onChange={handlerChangeCondo}
+              />
+            </div>
+            <div className="input-container">
+              <Title>CNPJ:</Title>
+              <input
+                type="text"
+                className="input-fields"
+                placeholder="Digite o CNPJ"
+                value={cnpj}
+                id="cnpj"
+                name="cnpj"
+                handlerChange={handlerChangeCondo}
+                onChange={handleCnpjChange}
+              />
+            </div>
+
+            <div className="contente-3"></div>
+            <div className="contente-2">
+              <div className="button-div">
+                <Button
+                  text="VOLTAR"
+                  onClick={handleClicks}
+
+                  // Função de clique
+                />
+
+                <Button
+                  text="CADASTRAR"
+                  onClick={() => alert("Botão clicado!")}
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     </form>
   );
 }

@@ -2,17 +2,26 @@ import Title from "../components/Title";
 import SelectComponent from "../components/SelectComponent";
 import Button from "../components/Button";
 import DropdownWithRadios from "../components/Dropdown";
+import { IoPersonCircleOutline } from "react-icons/io5";
+
 import MeuMenu from "../components/MeuMenu";
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import "../styles/error.css"
+import "../styles/error.css";
 function MoradoresC() {
-  const { register, handleSubmit, formState: { errors }, setValue, getValues, control } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+    getValues,
+    control,
+  } = useForm();
 
-  console.log({errors});
-  const onSubmi= (data) => {
+  console.log({ errors });
+  const onSubmi = (data) => {
     console.log(data);
-    insertMorador(data)
+    insertMorador(data);
   };
 
   // Função para formatar a data enquanto digita
@@ -34,7 +43,7 @@ function MoradoresC() {
     return v;
   };
 
-   function insertMorador(register) {
+  function insertMorador(register) {
     fetch("http://localhost:3333/morador", {
       method: "POST",
       mode: "cors",
@@ -66,10 +75,13 @@ function MoradoresC() {
       <div class="other-side">
         <div class="contente-1">
           <div>
-      <MeuMenu /> {/* Aqui o menu aparece na tela */}
-    </div>
+            <MeuMenu /> {/* Aqui o menu aparece na tela */}
+          </div>
           <Title>Adicionar um novo Morador:</Title>
-          <div class="photo-circle"></div>
+          <div class="photo-circle">
+            
+              <IoPersonCircleOutline size={550} color="#555" />
+          </div>
         </div>
       </div>
 
@@ -82,9 +94,11 @@ function MoradoresC() {
               type="text"
               className="input-fields"
               placeholder="Digite seu nome"
-              {...register("nome", { required: true })}  
+              {...register("nome", { required: true })}
             />
-            {errors?.nome?.type == 'required' && <p className="error-menssage">Nome é Obrigatorio</p>}
+            {errors?.nome?.type == "required" && (
+              <p className="error-menssage">Nome é Obrigatorio</p>
+            )}
           </div>
 
           <div className="input-container">
@@ -99,7 +113,7 @@ function MoradoresC() {
                   className="input-fields"
                   placeholder="Digite seu CPF"
                   {...field}
-                  onChange={e => {
+                  onChange={(e) => {
                     const formatted = formatCPF(e.target.value);
                     field.onChange(formatted);
                   }}
@@ -107,38 +121,36 @@ function MoradoresC() {
               )}
             />
           </div>
-            <div className="input-container">
-      <Title>Data de Nascimento:</Title>
-      <Controller
-        name="dt_nascimento"
-        control={control}
-        defaultValue=""
-        render={({ field }) => (
-          <input
-            type="text"
-            className="input-fields"
-            placeholder="Digite a data de nascimento (DD/MM/AAAA)"
-            {...field}
-            onChange={e => {
-              const formatted = formatDate(e.target.value);
-              field.onChange(formatted);
-            }}
-          />
-        )}
-      />
-    </div>
+          <div className="input-container">
+            <Title>Data de Nascimento:</Title>
+            <Controller
+              name="dt_nascimento"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <input
+                  type="text"
+                  className="input-fields"
+                  placeholder="Digite a data de nascimento (DD/MM/AAAA)"
+                  {...field}
+                  onChange={(e) => {
+                    const formatted = formatDate(e.target.value);
+                    field.onChange(formatted);
+                  }}
+                />
+              )}
+            />
+          </div>
 
-         <div className="input-container">
-  <Title>Gênero:</Title>
-  <Controller
-    name="genero"
-    control={control}
-    defaultValue=""
-    render={({ field }) => (
-      <DropdownWithRadios {...field} />
-    )}
-  />
-</div>
+          <div className="input-container">
+            <Title>Gênero:</Title>
+            <Controller
+              name="genero"
+              control={control}
+              defaultValue=""
+              render={({ field }) => <DropdownWithRadios {...field} />}
+            />
+          </div>
           <div className="input-container">
             <Title>Telefone:</Title>
             <input
@@ -184,7 +196,7 @@ function MoradoresC() {
               {...register("ramal")}
             />
           </div>
-         
+
           <div className="input-container">
             <Title>Senha:</Title>
             <input
@@ -199,14 +211,13 @@ function MoradoresC() {
             <div className="contente-3"></div>
             <div class="contente-2">
               <div className="button-div">
-                <Button
-                  text="VOLTAR"
-      
-                />
+                <Button text="VOLTAR" />
 
                 <Button
-                  text="CADASTRAR"        
-                  onClick={() => {handleSubmit(onSubmi)();}}
+                  text="CADASTRAR"
+                  onClick={() => {
+                    handleSubmit(onSubmi)();
+                  }}
                 />
               </div>
             </div>

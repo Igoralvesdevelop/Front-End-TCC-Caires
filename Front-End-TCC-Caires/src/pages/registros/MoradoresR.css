@@ -200,3 +200,14 @@ p {
   max-width: 900px;
   /* background-color: black; */
 }
+.more-icon {
+  transition: transform 0.3s ease;
+}
+
+.more-icon:hover {
+  transform: scale(1.2);
+}
+
+.more-icon:active {
+  transform: scale(0.9);
+}

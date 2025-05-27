@@ -2,11 +2,13 @@ import Title from "../components/Title";
 import Button from "../components/Button";
 import DropdownWithRadios from "../components/Dropdown";
 import PickDate from "../components/PickDate";
+import { IoPersonCircleOutline } from "react-icons/io5";
+
 import { useNavigate } from "react-router-dom";
 import MeuMenu from "../components/MeuMenu";
 
 
-function PrestadoresC() {
+function PrestadoresC({ imageUrl }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -21,6 +23,11 @@ function PrestadoresC() {
     </div>
         <Title>Adicionar um novo Prestador de serviço:</Title>
         <div class="photo-circle">
+          {imageUrl ? (
+        <img src={imageUrl} alt="User" />
+      ) : (
+        <IoPersonCircleOutline size={550} color="#555" />
+      )}
         </div>
 
         </div>
