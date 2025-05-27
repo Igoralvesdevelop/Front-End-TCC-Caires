@@ -45,18 +45,18 @@ function VeiculosC() {
       body: JSON.stringify(veiculo),
     })
       .then((resp) => {
-        if (!resp.ok) {
-          throw new Error("Erro ao cadastrar.");
+        if (resp.status === 201) {
+          alert("Veículo cadastrado com sucesso!");
+          navigate("/");
+        } else {
+          return resp.json().then((data) => {
+            throw new Error(data.message || "Erro ao cadastrar.");
+          });
         }
-        return resp.json();
-      })
-      .then(() => {
-        alert("Veículo cadastrado com sucesso!");
-        navigate("/");
       })
       .catch((error) => {
         console.error("Erro:", error.message);
-        alert("Erro ao cadastrar veículo.");
+        alert(error.message || "Erro ao cadastrar veículo.");
       });
   }
 
@@ -132,7 +132,7 @@ function VeiculosC() {
           </div>
 
  <div className="contente-3"></div>
-          <div class="contente-2">
+          <div className="contente-2">
             <div className="button-div">         
                  <Button
               text="VOLTAR"

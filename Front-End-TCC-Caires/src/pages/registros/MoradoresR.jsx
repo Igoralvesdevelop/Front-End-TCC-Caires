@@ -20,28 +20,17 @@ function MoradoresR() {
   useEffect(() => {
     fetch('http://localhost:3333/morador', {
       method: 'GET',
-      mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': '*',
       }
     })
       .then((resp) => resp.json())
       .then((morador) => {
-        console.log("Resposta do backend:", morador);
-        const lista = Array.isArray(morador.data)
-          ? morador.data
-          : Array.isArray(morador.message)
-            ? morador.message
-            : Array.isArray(morador)
-              ? morador
-              : [];
+        const lista = Array.isArray(morador.message) ? morador.message : [];
         setMoradores(lista);
-        console.log("Moradores recebidos:", lista);
       })
       .catch((err) => {
-        console.log(err)
+        console.error("Erro ao buscar moradores:", err);
         setMoradores([]);
       });
   }, [])
@@ -101,7 +90,6 @@ function MoradoresR() {
                   nome={morador.nome}
                   ramal={morador.ramal}
                   telefone={morador.telefone}
-                // Passe outros props se necessário
                 />
               ))
             ) : (
