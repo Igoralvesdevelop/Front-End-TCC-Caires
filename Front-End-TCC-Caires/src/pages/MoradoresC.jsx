@@ -108,7 +108,7 @@ function MoradoresC() {
             />
           </div>
             <div className="input-container">
-      <Title>DATA DE NASCIMENTO:</Title>
+      <Title>Data de Nascimento:</Title>
       <Controller
         name="dt_nascimento"
         control={control}
@@ -205,7 +205,7 @@ function MoradoresC() {
                 />
 
                 <Button
-                  text="Cadastras"        
+                  text="CADASTRAR"        
                   onClick={() => {handleSubmit(onSubmi)();}}
                 />
               </div>
