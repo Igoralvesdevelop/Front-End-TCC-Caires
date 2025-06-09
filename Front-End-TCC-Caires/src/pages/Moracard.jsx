@@ -1,7 +1,7 @@
 
 import style from './Moracard.module.css'
 
-const Moradorcard = ({id_morador, nome, ramal, telefone})=>{
+const Moradorcard = ({id_morado, nome, ramal, telefone})=>{
     return(
         
 
