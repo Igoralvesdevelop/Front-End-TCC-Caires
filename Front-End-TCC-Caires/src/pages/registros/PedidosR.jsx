@@ -5,11 +5,22 @@ import ButtonR from "../../components/ButtonR";
 import ButtonAz from "../../components/ButtonAz";
 import MeuMenu from "../../components/MeuMenu";
 import { IoAddCircleOutline } from "react-icons/io5";
+import { useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
 function PedidosR() {
   const navigate = useNavigate();
+  const [encomendas, setEncomendas] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3333/encomendas")
+      .then((resp) => resp.json())
+      .then((data) => {
+        // Supondo que o backend retorna { message: [encomendas] }
+        setEncomendas(Array.isArray(data.message) ? data.message : []);
+      });
+  }, []);
 
   return (
     <div className="container-principal">
@@ -52,31 +63,117 @@ function PedidosR() {
 
           {/* Lista de Informações */}
           <div className="label-side">
-            <div className="dive-label">
-              <div className="div-label">
-                <p>Nome:</p>
-                {[...Array(8)].map((_, index) => (
-                  <div key={index} className="text-container">
-                    <text className="text-fields"></text>
+            <div
+              className="encomendas-list"
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 24,
+                justifyContent: "center",
+              }}
+            >
+              {encomendas.map((enc) => (
+                <div
+                  key={enc.id_encomenda}
+                  className="encomenda-card"
+                  style={{
+                    background: "#fff",
+                    borderRadius: 12,
+                    boxShadow: "0 2px 8px black",
+                    padding: 16,
+                    width: 220,
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <img
+                    src={
+                      enc.imagem
+                        ? `http://localhost:3333/uploads/${enc.imagem}`
+                        : "https://via.placeholder.com/120x120?text=Sem+Foto"
+                    }
+                    alt="Encomenda"
+                    style={{
+                      width: 120,
+                      height: 120,
+                      objectFit: "cover",
+                      borderRadius: 8,
+                      marginBottom: 12,
+                    }}
+                  />
+                  <div
+                    style={{
+                      fontWeight: 600,
+                      marginBottom: 4,
+                    }}
+                  >
+                    Morador: {enc.nome_morador || enc.fk_id_morador}
                   </div>
-                ))}
-              </div>
-              <div className="div1-label">
-                <p>Data de Entrega:</p>
-                {[...Array(8)].map((_, index) => (
-                  <div key={index} className="text-container">
-                    <text className="text-fields"></text>
+                  <div
+                    style={{
+                      fontSize: 14,
+                      color: "#555",
+                    }}
+                  >
+                    Data:{" "}
+                    {enc.data_entrega
+                      ? new Date(enc.data_entrega).toLocaleString()
+                      : "-"}
                   </div>
-                ))}
-              </div>
-              <div className="div2-label">
-                <p>Status de Entrega:</p>
-                {[...Array(8)].map((_, index) => (
-                  <div key={index} className="text-container">
-                    <text className="text-fields"></text>
+                  <div
+                    style={{
+                      fontSize: 13,
+                      color: "#888",
+                      marginTop: 6,
+                    }}
+                  >
+                    Status: {enc.status_entrega}
                   </div>
-                ))}
-              </div>
+                  <button
+                    style={{
+                      marginTop: 12,
+                      background: "#e74c3c",
+                      color: "#fff",
+                      border: "none",
+                      borderRadius: 6,
+                      padding: "6px 16px",
+                      cursor: "pointer",
+                      fontWeight: 600,
+                      fontSize: 14,
+                    }}
+                    onClick={async () => {
+                      if (
+                        window.confirm(
+                          "Tem certeza que deseja deletar esta encomenda?"
+                        )
+                      ) {
+                        try {
+                          const resp = await fetch(
+                            `http://localhost:3333/encomendas/${enc.id_encomenda}`,
+                            {
+                              method: "DELETE",
+                            }
+                          );
+                          if (resp.ok) {
+                            setEncomendas((prev) =>
+                              prev.filter(
+                                (e) => e.id_encomenda !== enc.id_encomenda
+                              )
+                            );
+                          } else {
+                            alert("Erro ao deletar encomenda.");
+                          }
+                        } catch (err) {
+                          alert("Erro ao deletar encomenda.");
+                        }
+                      }
+                    }}
+                  >
+                    Deletar
+                  </button>
+                </div>
+              ))}
             </div>
           </div>
         </div>

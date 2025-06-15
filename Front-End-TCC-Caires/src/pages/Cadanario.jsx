@@ -1,13 +1,13 @@
 import "./Cadanario.css";
 import Title from "../components/Title";
 import SelectComponent from '../components/SelectComponent'; 
-import Button from '../components/Button'
+import Button from '../components/Button';
 import { IoPersonCircleOutline } from "react-icons/io5";
-
 import DropdownWithRadios from "../components/Dropdown";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import SelectFS from "../components/SelectFS";
+
 function Cadanario() {
   const [funcionario, setFuncionario] = useState({});
   const [dataNascimento, setDataNascimento] = useState(""); // Estado para a data de nascimento
@@ -24,7 +24,6 @@ function Cadanario() {
     console.log(funcionario);
   }
 
- 
   function formatDate(value) {
     return value
       .replace(/\D/g, "") // Remove tudo que não for dígito
@@ -67,15 +66,18 @@ function Cadanario() {
     setCpf(formattedCpf);
     setFuncionario({ ...funcionario, cpf: formattedCpf });
   }
-   function handlerChangeNivel(event) {
-        setFuncionario({ ...funcionario, nivel_acesso: event.target.value });
-    }
+
+  function handlerChangeNivel(event) {
+    setFuncionario({ ...funcionario, nivel_acesso: event.target.value });
+  }
+
   function submit(event) {
     event.preventDefault();
     console.log(funcionario);
     insertFunc(funcionario);
   }
-   useEffect(() => {
+
+  useEffect(() => {
     fetch('http://localhost:3333/nivelAcesso', {
       method: 'GET',
       headers: {
@@ -141,15 +143,23 @@ function Cadanario() {
     setFuncionario({ ...funcionario, genero: value }); // Atualiza o estado do funcionário
   };
 
+  const fields = [
+    { name: "nome", label: "Nome:", type: "text", value: funcionario.nome || "", onChange: handlerChangeFunc },
+    { name: "cpf", label: "CPF:", type: "text", value: cpf, onChange: handleCpfChange },
+    { name: "dt_nascimento", label: "Data de Nascimento:", type: "text", value: dataNascimento, onChange: handleDateChange },
+    { name: "telefone", label: "Telefone:", type: "text", value: telefone, onChange: handleTelefoneChange },
+    { name: "senha", label: "Senha:", type: "text", value: funcionario.senha || "", onChange: handlerChangeFunc },
+    { name: "fk_id_condominio", label: "Código do Condomínio:", type: "text", value: funcionario.fk_id_condominio || "", onChange: handlerChangeFunc },
+  ];
+
   return (
     <div className="container teste">
       <div className="other-side">
         <div className="contente-1">
           <Title>Adicionar um novo Funcionário:</Title>
           <div className="photo-circle">
-          
-        <IoPersonCircleOutline size={550} color="#555" />
-        </div>
+            <IoPersonCircleOutline size={550} color="#555" />
+          </div>
         </div>
       </div>
 
@@ -217,18 +227,6 @@ function Cadanario() {
           </div>
 
           <div className="input-container">
-            <Title>Senha:</Title>
-            <input
-              type="text"
-              className="input-fields"
-              placeholder="Digite sua senha"
-              name="senha"
-              id="senha"
-              onChange={handlerChangeFunc}
-            />
-          </div>
-
-          <div className="input-container">
             <Title>Código do Condomínio:</Title>
             <input
               type="text"
@@ -245,21 +243,14 @@ function Cadanario() {
               name="Nivel_acesso"
               id="nivel_acesso"
               handlerChange={handlerChangeNivel}
-              options={nivelAcesso} // <-- já está correto aqui
+              options={nivelAcesso}
             />
           </div>
           <div className="contente-3"></div>
           <div className="contente-2">
             <div className="button-div">
-              <Button
-                text="VOLTAR"
-                onClick={handleClick}
-                op
-              />
-              <Button
-                text="CADASTRAR"
-                onClick={submit}
-              />
+              <Button text="VOLTAR" onClick={handleClick} />
+              <Button text="CADASTRAR" onClick={submit} />
             </div>
           </div>
         </div>

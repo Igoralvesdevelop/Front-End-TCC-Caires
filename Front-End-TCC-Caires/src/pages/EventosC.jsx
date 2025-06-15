@@ -1,10 +1,11 @@
-import React, { useState } from "react";
 import SelectE from "../components/SelectE";
 import PickDate from "../components/PickDate";
 import MeuMenu from "../components/MeuMenu";
-import Title from "../components/Title";
+
+import Title from "../components/Title"; // Certifique-se de que o caminho está correto
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function EventosC() {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ function EventosC() {
   const [cpf, setCpf] = useState("");
   const [tituloEvento, setTituloEvento] = useState("");
   const [descricaoEvento, setDescricaoEvento] = useState("");
-  const [tipo, setTipo] = useState("");
+  const [tipo, setTipo] = useState(""); // Certifique-se de que o tipo está sendo capturado
   const [dataInicio, setDataInicio] = useState("");
   const [dataFim, setDataFim] = useState("");
   const [cor, setCor] = useState("");
@@ -25,10 +26,10 @@ function EventosC() {
 
   const formatarData = (data) => {
     return data
-      .replace(/\D/g, "")
-      .replace(/(\d{2})(\d)/, "$1/$2")
-      .replace(/(\d{2})(\d)/, "$1/$2")
-      .slice(0, 10);
+      .replace(/\D/g, "") // Remove caracteres não numéricos
+      .replace(/(\d{2})(\d)/, "$1/$2") // Adiciona a primeira barra
+      .replace(/(\d{2})(\d)/, "$1/$2") // Adiciona a segunda barra
+      .slice(0, 10); // Limita o tamanho a 10 caracteres
   };
 
   const handleCadastrar = async () => {
@@ -42,7 +43,7 @@ function EventosC() {
       cor,
       statusPagamento,
       fkIdMorador,
-    });
+    }); // Log para verificar os valores dos estados
 
     if (!cpf || !tituloEvento || !descricaoEvento || !tipo || !dataInicio || !dataFim || !cor || !statusPagamento || !fkIdMorador) {
       alert("Todos os campos obrigatórios devem ser preenchidos.");
@@ -85,7 +86,7 @@ function EventosC() {
     <div className="container teste">
       <div className="other-side">
         <div>
-          <MeuMenu />
+          <MeuMenu /> {/* Aqui o menu aparece na tela */}
         </div>
         <Title>Adicionar um novo Evento:</Title>
       </div>
@@ -132,7 +133,7 @@ function EventosC() {
               value={tipo}
               onChange={(e) => setTipo(e.target.value)}
             >
-              <option value="">Selecione o tipo</option>
+              <option value="">Selecione o tipo</option> {/* Valor padrão vazio */}
               <option value="Evento">Evento</option>
               <option value="Comunicado">Comunicado</option>
             </select>

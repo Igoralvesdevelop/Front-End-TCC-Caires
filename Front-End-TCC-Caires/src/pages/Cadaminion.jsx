@@ -2,7 +2,7 @@ import "./Cadaminion.css";
 import Title from "../components/Title";
 import SelectComponent from "../components/SelectComponent";
 import Button from "../components/Button";
-import { IoPersonCircleOutline } from "react-icons/io5";
+import { BsBuildings } from "react-icons/bs";
 
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -86,7 +86,7 @@ function Cadaminion() {
             <Title>Adicionar um novo Condomínio:</Title>
             <div class="photo-circle">
               
-                <IoPersonCircleOutline size={550} color="#555" />
+                <BsBuildings  size={150} color="#555" />
             </div>
           </div>
         </div>
@@ -178,7 +178,17 @@ function Cadaminion() {
                 onChange={handleCnpjChange}
               />
             </div>
-
+            <div className="input-container">
+                  <Title>Email:</Title>
+                  <input
+                    type="text"
+                    className="input-fields"
+                    placeholder="Digite o email da administração"
+                    name="email"
+                    id="email"
+                    onChange={handlerChangeCondo}
+                  />
+              </div>
             <div className="contente-3"></div>
             <div className="contente-2">
               <div className="button-div">
@@ -191,7 +201,7 @@ function Cadaminion() {
 
                 <Button
                   text="CADASTRAR"
-                  onClick={() => alert("Botão clicado!")}
+                  
                 />
               </div>
             </div>

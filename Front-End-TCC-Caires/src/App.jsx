@@ -13,6 +13,7 @@ import Login from "./pages/Login.jsx";
 import Funciocondo from "./pages/Funciocondo.jsx";
 import Telainicial from "./pages/Telainicial.jsx";
 import Impressao from "./pages/Impressao.jsx";
+import AcessosLiberados from "./pages/AcessosLiberados.jsx";
 /*cadastros*/
 import Cadaminion from "./pages/Cadaminion.jsx";
 import Cadanario from "./pages/Cadanario.jsx";
@@ -53,6 +54,14 @@ import VeiculosCa from "./pages/VeiculosC.jsx";
 import EventosCa from "./pages/EventosC.jsx";
 import PedidosCa from "./pages/PedidosC.jsx";
 
+/*atualizar registros*/
+import MoradoresA from "./pages/registro-atualizar/MoradoresA.jsx";
+import PrestadoresA from "./pages/registro-atualizar/ServadoresA.jsx";
+import VisitantesA from "./pages/registro-atualizar/VisitantesA.jsx";
+import VeiculosA from "./pages/registro-atualizar/VeiculosA.jsx";
+import EventosA from "./pages/registro-atualizar/EventosA.jsx";
+import PedidosA from "./pages/registro-atualizar/PedidosA.jsx";
+
 function Rotas() {
   return (
     <Router>
@@ -61,6 +70,7 @@ function Rotas() {
         <Route path="/" element={<Login />} />
         <Route path="/Telainicial" element={<Telainicial />} />
         <Route path="/Impressao" element={<Impressao />} />
+        <Route path="/acessos-liberados" element={<AcessosLiberados />} />
 
         <Route path="/Cadaminion" element={<Cadaminion />} />
         <Route path="/Cadanario" element={<Cadanario />} />
@@ -93,6 +103,13 @@ function Rotas() {
         <Route path="/visitantesc" element={<VisitantesCa />} />
         <Route path="/veiculosc" element={<VeiculosCa />} />
         <Route path="/eventosc" element={<EventosCa />} />
+
+        <Route path="/moradoresa/:id" element={<MoradoresA />} />
+        <Route path="/servidora/:id" element={<PrestadoresA />} />
+        <Route path="/visitantesa/:id" element={<VisitantesA />} />
+        <Route path="/veiculosa/:id" element={<VeiculosA />} />
+        <Route path="/eventosa/:id" element={<EventosA />} />
+        <Route path="/pedidosa/:id" element={<PedidosA />} />
       </Routes>
     </Router>
   );

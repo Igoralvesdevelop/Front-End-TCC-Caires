@@ -47,7 +47,7 @@ function VeiculosC() {
       .then((resp) => {
         if (resp.status === 201) {
           alert("Veículo cadastrado com sucesso!");
-          navigate("/");
+          navigate("/VeiculosR");
         } else {
           return resp.json().then((data) => {
             throw new Error(data.message || "Erro ao cadastrar.");
@@ -136,7 +136,7 @@ function VeiculosC() {
             <div className="button-div">         
                  <Button
               text="VOLTAR"
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/veiculosR")}
             />
 
             <Button

@@ -9,8 +9,30 @@ import { IoPeopleSharp } from "react-icons/io5";
 import { FaUnlock } from "react-icons/fa6";
 import { IoIosMenu } from "react-icons/io";
 import ButtonAz from "../components/ButtonAz";
+import { useState, useEffect } from "react";
+import { useHistorico } from "../context/HistoricoContext";
+import { Button } from "@mui/material";
 
 function Telainicial() {
+    const [moradores, setMoradores] = useState([]);
+    const { historicoConsultas } = useHistorico();
+    useEffect(() => {
+      fetch('http://localhost:3333/morador', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
+        .then((resp) => resp.json())
+        .then((morador) => {
+          const lista = Array.isArray(morador.message) ? morador.message : [];
+          setMoradores(lista);
+        })
+        .catch((err) => {
+          console.error("Erro ao buscar moradores:", err);
+          setMoradores([]);
+        });
+    }, [])
   return (
     <>
       <div class="continente-4">
@@ -19,9 +41,10 @@ function Telainicial() {
           onClick={() => alert("Botão clicado!")}
           // Função de clique
         />
-
+        
         <div class="continente">
           <div class="norte-side">
+       
             <div class="continente-1">
               <img src={cairesazul} alt="Logo" className="img-inicial" />
             </div>
@@ -29,7 +52,7 @@ function Telainicial() {
             <div class="continente-2">
               <div className="red-div">
                 <div className="red-sub1">
-                  <p>{"Moradores Ativos"}</p>
+                  <p>{`Moradores Ativos: ${moradores.length}`}</p>
                   <IoPerson size={30} color="black" />
                 </div>
                 <div className="red-sub2">
@@ -39,10 +62,12 @@ function Telainicial() {
                 <div className="red-sub3">
                 <p>{"Visitantes"}</p>
                   <IoPersonAdd size={30} color="black" />
+                  <p></p>
                 </div>
                 <div className="red-sub4">
                 <p>{"Visitantes Liberados"}</p>
                   <IoPeopleSharp size={30} color="black" />
+                  
                 </div>
               </div>
             </div>
@@ -59,8 +84,8 @@ function Telainicial() {
                 <p>{"Acessos Negados"}</p>
                   <FaUserAltSlash size={30} color="black" />
                 </div>
-                <div className="red-sub7">
-                <p>{"Acessos Liberados"}</p>
+                <div className="red-sub7" style={{cursor: 'pointer'}} onClick={() => window.location.href = '/acessos-liberados'}>
+                <p>{`Acessos Liberados: ${historicoConsultas.length}`}</p>
                   <FaUnlock size={30} color="black" />
                 </div>
               </div>

@@ -90,6 +90,8 @@ function MoradoresR() {
                   nome={morador.nome}
                   ramal={morador.ramal}
                   telefone={morador.telefone}
+                  id_morador={morador.id_morador}
+                  rota="moradoresa"
                 />
               ))
             ) : (

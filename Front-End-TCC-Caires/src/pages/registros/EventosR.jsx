@@ -5,31 +5,13 @@ import ButtonR from "../../components/ButtonR";
 import ButtonAz from "../../components/ButtonAz";
 import MeuMenu from "../../components/MeuMenu";
 import { IoAddCircleOutline } from "react-icons/io5";
+
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import EventCard from "../EventCard";
+
+
 
 function EventosR() {
-  const navigate = useNavigate();
-  const [eventos, setEventos] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:3333/eventos", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        const lista = Array.isArray(data.message) ? data.message : [];
-        setEventos(lista);
-      })
-      .catch((err) => {
-        console.error("Erro ao buscar eventos:", err);
-        setEventos([]);
-      });
-  }, []);
+    const navigate = useNavigate();
 
   return (
     <div className="container-principal">
@@ -48,7 +30,7 @@ function EventosR() {
                 <MeuMenu /> {/* Aqui o menu aparece na tela */}
               </div>
               <img src={cairesa} alt="Logo" className="img-cadA" />
-              <div className="icon-contain">
+                 <div className="icon-contain">
                 <IoAddCircleOutline
                   size={50}
                   color="black"
@@ -72,23 +54,32 @@ function EventosR() {
 
           {/* Lista de Informações */}
           <div className="label-side">
-            <div className="dive-label">
-              {Array.isArray(eventos) && eventos.length > 0 ? (
-                eventos.map((evento, idx) => (
-                  <EventCard
-                    key={evento.id_evento || idx}
-                    titulo_evento={evento.titulo_evento}
-                    CPF={evento.cpf}
-                    Data={evento.inicio_evento}
-                  />
-                  
-                ))
-              ) : (
-                <div style={{ padding: "16px", color: "#888" }}>
-                  Nenhum evento encontrado.
-                </div>
-              )}
-            </div>
+            {/* <div className="dive-label">
+              <div className="div-label">
+                <p>Título do Evento:</p>
+                {[...Array(8)].map((_, index) => (
+                  <div key={index} className="text-container">
+                    <text className="text-fields"></text>
+                  </div>
+                ))}
+              </div>
+              <div className="div1-label">
+                <p>Data:</p>
+                {[...Array(8)].map((_, index) => (
+                  <div key={index} className="text-container">
+                    <text className="text-fields"></text>
+                  </div>
+                ))}
+              </div>
+              <div className="div2-label">
+                <p>Organizador:</p>
+                {[...Array(8)].map((_, index) => (
+                  <div key={index} className="text-container">
+                    <text className="text-fields"></text>
+                  </div>
+                ))}
+              </div>
+            </div> */}
           </div>
         </div>
       </div>
